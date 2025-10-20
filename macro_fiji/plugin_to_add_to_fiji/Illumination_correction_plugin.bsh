@@ -1,0 +1,36 @@
+// @ImagePlus(label="Stack of images to normalize") imp
+// @Integer(label="Reference slice",value=1) referenceSlice
+// @OUTPUT ImagePlus result
+
+import ij.IJ;
+import ij.ImageStack;
+import ij.ImagePlus;
+import histogram2.HistogramMatcher;
+
+if( referenceSlice < 1 || referenceSlice > imp.getImageStackSize() )
+{
+	IJ.error( "Error: wrong selection of reference slice" );
+	return;
+}
+// Create result stack
+resStack = new ImageStack( imp.getWidth(), imp.getHeight() );
+// Create a histogram matcher for all slices
+matcher = new HistogramMatcher();
+// Read reference slice histogram
+ip2 = imp.getStack().getProcessor( referenceSlice );
+hist2 = ip2.getHistogram();
+// Match the histogram of each slice to the reference one
+for( slice=1; slice <= imp.getImageStackSize(); slice++ )
+{
+	ip1 = imp.getStack().getProcessor( slice );
+	if( slice != referenceSlice )
+	{
+		hist1 = ip1.getHistogram();
+		newHist = matcher.matchHistograms(hist1, hist2);
+		ip1.applyTable(newHist);		
+	}
+	resStack.addSlice(imp.getStack().getSliceLabel( slice ), ip1 );
+}
+// Create result ImagePlus
+result = new ImagePlus("Histogram-matched-" + imp.getTitle(), resStack );
+result.setCalibration( imp.getCalibration() );
