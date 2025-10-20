@@ -14,7 +14,7 @@ The main advantage of this pipeline is its user-friendly design. Assuming all de
 
 Relevant publications to read:
 
-- [1] Dembo, M., & Wang, Y. L. (1999). Stresses at the cell-to-substrate interface during locomotion of fibroblasts. Biophysical journal, 76(4), 2307-2316.
+- [1] Dembo, M., Oliver, T., Ishihara, A., & Jacobson, K. (1996). Imaging the traction stresses exerted by locomoting cells with the elastic substratum method. Biophysical journal, 70(4), 2008-2022.
 - [2] Trepat, X., Wasserman, M. R., Angelini, T. E., Millet, E., Weitz, D. A., Butler, J. P., & Fredberg, J. J. (2009). Physical forces during collective cell migration. Nature physics, 5(6), 426-430.
 - [3] Tambe, D. T., Corey Hardin, C., Angelini, T. E., Rajendran, K., Park, C. Y., Serra-Picamal, X., ... & Trepat, X. (2011). Collective cell guidance by cooperative intercellular forces. Nature materials, 10(6), 469-475.
 - [4] Nier, V., Jain, S., Lim, C. T., Ishihara, S., Ladoux, B., & Marcq, P. (2016). Inference of internal stress in a cell monolayer. Biophysical journal, 110(7), 1625-1635.
