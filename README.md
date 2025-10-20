@@ -129,7 +129,7 @@ It includes the following variables:
 
 ## IMPORTANT NOTES, TROUBLESHOOTING AND COMMON ISSUES
 
-- In some cases, the bead images may appear slightly shaky, with small shifts in X and Y, as microscopes are not always perfectly stable. In such situations, a stronger alignment plugin for FIJI can help correct these drifts. The plugin aligns image stacks using object detection. You can find it here: [Linear Stack Alignment with SIFT](https://imagej.net/plugins/linear-stack-alignment-with-sift).  It is recommended to use this plugin before running the rest of the pipeline.
+- In some cases, the bead images may appear slightly shaky, with small shifts in X and Y, as microscopes are not always perfectly stable. In such situations, a stronger alignment plugin for FIJI can help correct these drifts. You can find it here: [Linear Stack Alignment with SIFT](https://imagej.net/plugins/linear-stack-alignment-with-sift).  It is recommended to use this plugin before running the rest of the pipeline.
 
 
 > [!TIP]
