@@ -773,7 +773,7 @@ else
 
 end
 
-%% TRACTION FORCE MAGNITUDE WITH THE DIRECTION OF THE TRACTION 
+%% TRACTION FORCE MAGNITUDE WITH CELLS IN BACKGROUND 
 
 cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
 n_tract = 20; %number of line (the more, the less you see)
@@ -849,51 +849,46 @@ end
 
 %% TRACTION FORCE MAGNITUDE WITH CELLS IN BACKGROUND 
 
-cmax = max(cat(3,stress_aniso{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
+cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
 
 figure;
 
 if flag_test 
-    ar = sqrt(3)*stress_aniso{frame,1}./stress_VM{frame,1}; %pseudo aspect ratio for the principal stress direction 
-    xD = angle_stress_x{frame,1};
-    yD = angle_stress_y{frame,1};
-
-    field = interpn(ytemp(:,1),xtemp(1,:),stress_aniso{frame,1},(1:nby)',(1:nbx)); 
+    
+    field = interpn(ytemp(:,1),xtemp(1,:),T{frame,1},(1:nby)',(1:nbx)); 
     [C, qh] = contourf(field, 80);
     set(qh,'EdgeColor','none');
     colormap(flipud(slanCM('parula',40)));
     shading flat;
     axis equal tight;
     colorbar;
-    title('Anisotropic inter-cellular stress (Pa.µm)');
+    title('Traction forces magnitude (Pa)');
     set(gca,'clim',[0 cmax]);
     hold on;
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-    quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
+    T_x = Tx{frame,1}; T_y = Ty{frame,1}; Tm = T{frame,1};
+    quiver(xtemp - T_x./(2*Tm),ytemp - T_y./(2*Tm), T_x, T_y,'k','AutoScaleFactor',1.5, 'LineWidth',2);
     set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Traction\TractionMagnitudeOri
     for i=1:Numframes
- 
-        ar = sqrt(3)*stress_aniso{i,1}./stress_VM{i,1}; %pseudo aspect ratio for the principal stress direction 
-        xD = angle_stress_x{i,1};
-        yD = angle_stress_y{i,1};
     
-        field = interpn(ytemp(:,1),xtemp(1,:),stress_aniso{i,1},(1:nby)',(1:nbx)); 
+        field = interpn(ytemp(:,1),xtemp(1,:),T{i,1},(1:nby)',(1:nbx)); 
         [C, qh] = contourf(field, 80);
         set(qh,'EdgeColor','none');
-        colormap((slanCM('parula',40));
+        colormap(slanCM('parula',40));
         shading flat;
         axis equal tight;
         colorbar;
-        title('Anisotropic inter-cellular stress (Pa.µm)');
+        title('Traction forces magnitude (Pa)');
         set(gca,'clim',[0 cmax]);
         hold on;
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-        quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
+        T_x = Tx{frame,1}; T_y = Ty{frame,1}; Tm = T{frame,1};
+        quiver(xtemp - T_x./(2*Tm), ytemp - T_y./(2*Tm), T_x, T_y,'k','AutoScaleFactor',1.5, 'LineWidth',2);
         set(gcf, 'WindowState','maximized');
         cd Output\Traction\TractionMagnitudeOri
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
