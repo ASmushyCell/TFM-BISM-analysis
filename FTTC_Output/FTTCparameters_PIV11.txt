@@ -1,4 +1,0 @@
-Young's Modulus (E): 15000.0
-Regularization factor(lambda): 9.0E-10
-pixel size (in micron): 6.4E-7
-Poisson ratio: 0.5
