@@ -43,7 +43,7 @@ Additionally, the pipeline makes use of several external MATLAB functions develo
 
 ## ABOUT THE EXEMPLE DATA 
 
-A typical raw TFM dataset is provided in the `exemple_TFM` directory, located within the `data_test` folder. To generate this dataset, MDCK WT cells were seeded on a polydimethylsiloxane (PDMS) substrate with a stiffness of 15 kPa, coated with fibronectin and 200 nm Cy3 fluorescent beads (FluoSpheres, Invitrogen), following the protocol fully described in [6]. \
+A typical raw TFM dataset is provided in the `exemple_TFM` directory, located within the `data_test` folder. To generate this dataset, MDCK WT cells were seeded on a polydimethylsiloxane (PDMS) substrate with a stiffness of **15 kPa**, coated with fibronectin and 200 nm Cy3 fluorescent beads (FluoSpheres, Invitrogen), following the protocol fully described in [6]. \
 The dataset includes the following image stacks:
 
 - `brightfield` : a time-lapse stack of brightfield images focused on the cells.
