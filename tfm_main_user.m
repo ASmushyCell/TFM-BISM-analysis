@@ -365,7 +365,7 @@ f.WindowState = 'maximized';
 %the next section allows to plot various parameters in space and in time
 %all the plot will be staved in Output/ corresponding folder 
 
-flag_test = 0; %this is a flag that allow you not to plot the whole field for each frame but rather, for only one frame 
+flag_test = 1; %this is a flag that allow you not to plot the whole field for each frame but rather, for only one frame 
 % flag_test = 1 ; plot the frame number "frame" else plot all the frame and saved them 
 frame = 1; %the frame you want to see, if flag_test is at zero, this don't matter 
 
@@ -847,7 +847,7 @@ else
 end
 
 
-%% TRACTION FORCE MAGNITUDE WITH CELLS IN BACKGROUND 
+%% TRACTION FORCE MAGNITUDE WITH TRACTION FORCE FIELD
 
 cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
 
@@ -858,7 +858,7 @@ if flag_test
     field = interpn(ytemp(:,1),xtemp(1,:),T{frame,1},(1:nby)',(1:nbx)); 
     [C, qh] = contourf(field, 80);
     set(qh,'EdgeColor','none');
-    colormap(flipud(slanCM('parula',40)));
+    colormap(slanCM('parula',80));
     shading flat;
     axis equal tight;
     colorbar;
