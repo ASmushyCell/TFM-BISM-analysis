@@ -2,9 +2,6 @@
 
 *This is a repository for the traction force microscopy and bayesian inversion stress microscopy pipeline used by the Ladoux-Mège group, Institut Jacques Monod, Paris.*
 
-> [!CAUTION]
-> Please do not share it with people outside the lab as it is still a work in progress. 
-
 > [!NOTE]
 > Written by Lucas Anger, building on the initial work of Philippe Marcq and Vincent Nier. Andreas Schönit and Fanny Wodrascka provided feedback and suggestions during the writing process. 
 
