@@ -365,7 +365,7 @@ f.WindowState = 'maximized';
 %the next section allows to plot various parameters in space and in time
 %all the plot will be staved in Output/ corresponding folder 
 
-flag_test = 1; %this is a flag that allow you not to plot the whole field for each frame but rather, for only one frame 
+flag_test = 0; %this is a flag that allow you not to plot the whole field for each frame but rather, for only one frame 
 % flag_test = 1 ; plot the frame number "frame" else plot all the frame and saved them 
 frame = 1; %the frame you want to see, if flag_test is at zero, this don't matter 
 
@@ -808,7 +808,7 @@ if flag_test
     axis equal tight;
     % set(gcf, 'WindowState','maximized');
 else
-    mkdir Output\Traction\TractionMagnitudeOri
+    mkdir Output\Traction\TractionMagnitudeCell
     for i=1:Numframes
  
         ax1=axes;
@@ -836,7 +836,7 @@ else
         colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
         axis equal tight;
         % set(gcf, 'WindowState','maximized');
-        cd Output\Traction\TractionMagnitudeOri
+        cd Output\Traction\TractionMagnitudeCell
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
             close gcf
     
