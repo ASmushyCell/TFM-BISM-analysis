@@ -60,7 +60,7 @@ flag_lamba = 0; %if you let it at zero lambda to compute the stress will have a 
 
 % this a parameter for the stress, if you don't know let it at 0 ; basically it imposes a zero stress condition 
 % on the edge of the image if confined case
-boundary = 1; %% Boundary condition confined = 1, unconfined =0;
+boundary = 0; %% Boundary condition confined = 1, unconfined =0;
 
 %FTTC macro ; this part is basically allowing Matlab to call FIJI by itself
 
@@ -399,7 +399,7 @@ if flag_test
     hold on;
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Stress\IsotropicStress
@@ -417,7 +417,7 @@ else
         hold on;
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]);
-        set(gcf, 'WindowState','maximized' );
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\IsotropicStress
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -430,7 +430,7 @@ end
 
 
 %% ISOTROPIC STRESS WITH CELLS IN BACKGROUND 
-n_iso = 30; %number of line (the more, the less you see)
+n_iso = 15; %number of line (the more, the less you see)
 
 figure;
 cmax = max(cat(3,stress_iso{:}),[],'all','omitnan')/3; %this is to saturate the color map to better visualize 
@@ -460,7 +460,7 @@ if flag_test
     colormap(ax1,'gray');
     colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
     axis equal tight;
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 else
     mkdir Output\Stress\IsotropicStressCells
     for i=1:Numframes
@@ -488,7 +488,7 @@ else
         colormap(ax1,'gray');
         colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
         axis equal tight;
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\IsotropicStressCells
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -516,7 +516,7 @@ if flag_test
     hold on;
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Stress\AnisotropicStress
@@ -534,7 +534,7 @@ else
         hold on;
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\AnisotropicStress
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -549,7 +549,7 @@ end
 %% ANISOTROPIC STRESS WITH CELLS IN BACKGROUND 
 
 
-n_aniso = 20; %number of line (the more, the less you see)
+n_aniso = 10; %number of line (the more, the less you see)
 
 figure;
 cmax = max(cat(3,stress_aniso{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize
@@ -580,7 +580,7 @@ if flag_test
     colormap(ax1,'gray');
     colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
     axis equal tight;
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 else
     mkdir Output\Stress\AnisotropicStressCells
     for i=1:Numframes
@@ -608,7 +608,7 @@ else
         colormap(ax1,'gray');
         colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
         axis equal tight;
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\AnisotropicStressCells
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -641,7 +641,7 @@ if flag_test
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
     quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Stress\AnisotropicStressOri
@@ -664,7 +664,7 @@ else
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
         quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\AnisotropicStressOri
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -693,7 +693,7 @@ if flag_test
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[],'Color','k');
     title('Principal stress direction');
     quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Stress\AnisotropicStressCellsOri
@@ -712,7 +712,7 @@ else
         title('Principal stress direction');
         
         quiver(xtemp- 14*ar.*xD/2, ytemp- 14*ar.*yD/2, 14*ar.*xD, 14*ar.*yD, 'off', 'LineWidth', 2,'ShowArrowHead', 'Off','Color', '#ee4035');
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Stress\AnisotropicStressCellsOri
             saveas(gcf,['StressOutput' num2str(i) '.tif']);
             close gcf
@@ -726,16 +726,16 @@ end
 
 %% TRACTION FORCE MAGNITUDE 
 
-cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
+cmax = max(cat(3,T{:}),[],'all','omitnan')/1.5; %this is to saturate the color map to better visualize 
 
 figure;
 
 if flag_test 
 
     field = interpn(ytemp(:,1),xtemp(1,:),T{frame,1},(1:nby)',(1:nbx)); 
-    [C, qh] = contourf(field, 40);
+    [C, qh] = contourf(field, 80);
     set(qh,'EdgeColor','none');
-    colormap(slanCM('parula',40));
+    colormap(slanCM('parula',80));
     shading flat;
     axis equal tight;
     colorbar;
@@ -744,7 +744,7 @@ if flag_test
     hold on;
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Traction\TractionMagnitude
@@ -762,7 +762,7 @@ else
         hold on;
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Traction\TractionMagnitude
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
             close gcf
@@ -775,8 +775,8 @@ end
 
 %% TRACTION FORCE MAGNITUDE WITH CELLS IN BACKGROUND 
 
-cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
-n_tract = 20; %number of line (the more, the less you see)
+cmax = max(cat(3,T{:}),[],'all','omitnan')/1.5; %this is to saturate the color map to better visualize 
+n_tract = 10; %number of line (the more, the less you see)
 
 figure;
 cmax = max(cat(3,T{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize
@@ -806,7 +806,7 @@ if flag_test
     colormap(ax1,'gray');
     colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
     axis equal tight;
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 else
     mkdir Output\Traction\TractionMagnitudeOri
     for i=1:Numframes
@@ -835,7 +835,7 @@ else
         colormap(ax1,'gray');
         colorbar(ax2,'Position',[0.92,0.13,0.02,0.78],'AxisLocation','out');
         axis equal tight;
-        set(gcf, 'WindowState','maximized');
+        % set(gcf, 'WindowState','maximized');
         cd Output\Traction\TractionMagnitudeOri
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
             close gcf
@@ -869,7 +869,7 @@ if flag_test
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
     T_x = Tx{frame,1}; T_y = Ty{frame,1}; Tm = T{frame,1};
     quiver(xtemp - T_x./(2*Tm),ytemp - T_y./(2*Tm), T_x, T_y,'k','AutoScaleFactor',1.5, 'LineWidth',2);
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Traction\TractionMagnitudeOri
@@ -887,9 +887,9 @@ else
         hold on;
         set(gca,'YDir','reverse');
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
-        T_x = Tx{frame,1}; T_y = Ty{frame,1}; Tm = T{frame,1};
-        quiver(xtemp - T_x./(2*Tm), ytemp - T_y./(2*Tm), T_x, T_y,'k','AutoScaleFactor',1.5, 'LineWidth',2);
-        set(gcf, 'WindowState','maximized');
+        T_x = Tx{i,1}; T_y = Ty{i,1}; Tm = T{i,1};
+        quiver(xtemp - T_x./(2*Tm), ytemp - T_y./(2*Tm), T_x, T_y,'k','AutoScaleFactor',1.5, 'LineWidth',1.5);
+        % set(gcf, 'WindowState','maximized');
         cd Output\Traction\TractionMagnitudeOri
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
             close gcf
@@ -917,7 +917,7 @@ if flag_test
     title('Traction forces field (Pa)');
     T_x = Tx{frame,1}; T_y = Ty{frame,1}; Tm = T{frame,1};
     quiver(xtemp - T_x./(2*Tm),ytemp - T_y./(2*Tm), T_x, T_y,'r','AutoScaleFactor',1.5, 'LineWidth',2);
-    set(gcf, 'WindowState','maximized');
+    % set(gcf, 'WindowState','maximized');
 
 else
     mkdir Output\Traction\TractionCellOri
@@ -932,8 +932,8 @@ else
         set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[],'Color','k');
         title('Traction forces field (Pa)');
         T_x = Tx{i,1}; T_y = Ty{i,1}; Tm = T{i,1};
-        quiver(xtemp - T_x./(2*Tm),ytemp - T_y./(2*Tm), T_x, T_y,'r','AutoScaleFactor',1.5, 'LineWidth',2);
-        set(gcf, 'WindowState','maximized');
+        quiver(xtemp - T_x./(2*Tm),ytemp - T_y./(2*Tm), T_x, T_y,'r','AutoScaleFactor',1.5, 'LineWidth',1.5);
+        % set(gcf, 'WindowState','maximized');
         cd Output\Traction\TractionCellOri
             saveas(gcf,['TractOutput' num2str(i) '.tif']);
             close gcf
