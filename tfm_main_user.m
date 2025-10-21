@@ -60,7 +60,7 @@ flag_lamba = 0; %if you let it at zero lambda to compute the stress will have a 
 
 % this a parameter for the stress, if you don't know let it at 0 ; basically it imposes a zero stress condition 
 % on the edge of the image if confined case
-boundary = 0; %% Boundary condition confined = 1, unconfined =0;
+boundary = 1; %% Boundary condition confined = 1, unconfined =0;
 
 %FTTC macro ; this part is basically allowing Matlab to call FIJI by itself
 
@@ -381,21 +381,21 @@ xtemp=x_TFM{1,1}; %pos on y in the true image based on PIV analysis
 
 %% ISOTROPIC STRESS 
 
-cmax = max(cat(3,stress_iso{:}),[],'all','omitnan')/2; %this is to saturate the color map to better visualize 
+cmax = max(cat(3,stress_iso{:}),[],'all','omitnan'); %this is to saturate the color map to better visualize 
 
 figure;
 
 if flag_test 
 
     field = interpn(ytemp(:,1),xtemp(1,:),stress_iso{frame,1},(1:nby)',(1:nbx)); 
-    [C, qh] = contourf(stress_iso{frame,1}, 80);
+    [C, qh] = contourf(field, 80);
     set(qh,'EdgeColor','none');
     colormap(flipud(slanCM('spectral',80)));
     shading flat;
     axis equal tight;
     colorbar;
     title('Isotropic inter-cellular stress (Pa.µm)');
-    %set(gca,'clim',[-cmax cmax]);
+    set(gca,'clim',[-cmax cmax]);
     hold on;
     set(gca,'YDir','reverse');
     set(gca,'XColor','none','yColor','none','xtick',[],'ytick',[]); 
