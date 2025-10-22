@@ -106,7 +106,7 @@ It includes the following variables, corresponding to the reconstructed stress t
 | **stress_m** | **Minimum principal stress**, the smaller eigenvalue of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **stress_iso** | **Isotropic stress**, first invariant of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **stress_aniso** | **Anisotropic stress**, second invariant of the deviatoric stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **sigma_VM** | **Von Mises equivalent stress**, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **sigma_VM** | **von Mises equivalent stress**, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **angle_stress_x**, **angle_stress_y** | unit x-component and y-component of the **principal stress orientation** director field. | Cell arrays of 2D matrices, of size {N,1} |
 
 - **`parameter_stats.mat`**: This file contains time-dependent statistical characterization of the parameters computed using TFM and BISM analyses.
