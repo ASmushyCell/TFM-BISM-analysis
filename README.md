@@ -105,7 +105,7 @@ It includes the following variables, corresponding to the reconstructed stress t
 | **stress_M** | **Maximum principal stress**, the larger eigenvalue of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **stress_m** | **Minimum principal stress**, the smaller eigenvalue of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **stress_iso** | **Isotropic stress**, first invariant of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_aniso** | **Anisotropic stress**, second invariant of the deviatoric stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_aniso** | **Anisotropic stress**, maximum shear stress, derived from the second invariant of the deviatoric stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **sigma_VM** | **von Mises equivalent stress**, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **angle_stress_x**, **angle_stress_y** | unit x-component and y-component of the **principal stress orientation** director field. | Cell arrays of 2D matrices, of size {N,1} |
 
