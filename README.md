@@ -81,7 +81,7 @@ Provided your raw data are located in a specific folder, all required plugins ar
 > - **stress_yx** is not computed, as by construction, the stress tensor is **symmetric**.
 > - **stress_xy** is also referred to as **shear stress**. Since it is not invariant under a change of basis, if you wish to quantify the overall "amount" of shear stress, you should instead use an invariant quantity such as **stress_aniso**, sometimes also called the **maximum shear stress**.
 > - Boundary values are set to `NaN` to remove unreliable estimates at the image edges.
-> - This pipeline assumes that the tissue behaves as a 2D sheet. As a result, some of the computed parameters may appear to have inconsistent dimensions from a physicist’s perspective, notably including an extra per unit length [L] factor. This is because they are calculated under the assumption of a constant and known tissue height. For a detailed explanation, please refer to [4]. If you wish to express these variables in their proper physical units, you can divide them by the tissue height, provided it remains reasonably uniform in magnitude and its value is known.
+> - This pipeline assumes that the tissue behaves as a 2D sheet. As a result, some of the computed parameters may appear to have inconsistent dimensions from a physicist’s perspective, notably including an extra unit length [L] factor. This is because they are calculated under the assumption of a constant and known tissue height. For a detailed explanation, please refer to [4]. If you wish to express these variables in their proper physical units, you can divide them by the tissue height, provided it remains reasonably uniform in magnitude and its value is known.
 
 - **`traction_force.mat`**: This file contains the **traction force field** computed from FTTC (Fourier Transform Traction Cytometry) analysis.  
 It includes the following variables, vector components or derived quantities for each time frame of the experiment:
@@ -99,14 +99,14 @@ It includes the following variables, corresponding to the reconstructed stress t
 
 | Variable | Description | Type |
 |-----------|--------------|------|
-| **stress_xx** | **xx-component** of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_yy** | **yy-component** of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_xy** | **xy-component** of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_M** | **Maximum principal stress**, the larger eigenvalue of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_m** | **Minimum principal stress**, the smaller eigenvalue of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_iso** | **Isotropic stress**, first invariant of the stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **stress_aniso** | **Anisotropic stress**, second invariant of the deviatoric stress tensor, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
-| **sigma_VM** | **Von Mises equivalent stress**, in pascal per micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_xx** | **xx-component** of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_yy** | **yy-component** of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_xy** | **xy-component** of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_M** | **Maximum principal stress**, the larger eigenvalue of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_m** | **Minimum principal stress**, the smaller eigenvalue of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_iso** | **Isotropic stress**, first invariant of the stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **stress_aniso** | **Anisotropic stress**, second invariant of the deviatoric stress tensor, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
+| **sigma_VM** | **Von Mises equivalent stress**, in pascal micron (Pa.µm). | Cell array of 2D matrices, of size {N,1} |
 | **angle_stress_x**, **angle_stress_y** | unit x-component and y-component of the **principal stress orientation** director field. | Cell arrays of 2D matrices, of size {N,1} |
 
 - **`parameter_stats.mat`**: This file contains time-dependent statistical characterization of the parameters computed using TFM and BISM analyses.
@@ -117,12 +117,12 @@ It includes the following variables:
 | **time** | Time points for each frame, in hour (h). | Array of double of size 1 x N |
 | **m_T** | Mean **traction force magnitude** across the field for each time frame, in pascal (Pa). | Array of double of size N x 1 |
 | **f_T** | Standard deviation of **traction force magnitude** across the field for each time frame, in pascal (Pa). | Array of double of size N x 1 |
-| **m_iso** | Mean **isotropic stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
-| **f_iso** | Standard deviation of **isotropic stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
-| **m_aniso** | Mean **anisotropic stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
-| **f_aniso** | Standard deviation of **anisotropic stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
-| **m_vm** | Mean **von Mises stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
-| **f_vm** | Standard deviation of **von Mises stress** across the field for each time frame, in pascal per micron (Pa.µm). | Array of double of size N x 1 |
+| **m_iso** | Mean **isotropic stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
+| **f_iso** | Standard deviation of **isotropic stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
+| **m_aniso** | Mean **anisotropic stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
+| **f_aniso** | Standard deviation of **anisotropic stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
+| **m_vm** | Mean **von Mises stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
+| **f_vm** | Standard deviation of **von Mises stress** across the field for each time frame, in pascal micron (Pa.µm). | Array of double of size N x 1 |
 
 ## IMPORTANT NOTES, TROUBLESHOOTING AND COMMON ISSUES
 
