@@ -3,7 +3,7 @@
 % Ladoux-Mège Lab, Institut Jacques Monod, Paris, France 
 
 % The current implementation of this code is the result of combined efforts by 
-% Vincent Nier, Joseph d’Allesandro, Benoît Ladoux, Lucas Anger, and possibly others. 
+% Vincent Nier, Joseph d’Alessandro, Benoît Ladoux, Lucas Anger, and possibly others. 
 % Not all modifications could be fully tracked over time as tracing every change is basically doing internal lab archeology.
 
 % To use please cite the two following papers: 
@@ -943,3 +943,4 @@ else
     end
 
 end
+
