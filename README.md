@@ -22,8 +22,8 @@ Relevant publications to read:
 ## CITATION
 
 If you use this code, please cite the two following references:
-- Nier, V., Jain, S., Lim, C. T., Ishihara, S., Ladoux, B., & Marcq, P. (2016). Inference of internal stress in a cell monolayer. Biophysical journal, 110(7), 1625-1635. [DOI:10.1016/j.bpj.2016.03.002](https://doi.org/10.1016/j.bpj.2016.03.002)
-- Anger, L., Schoenit, A., Wodrascka, F., Rosse, C., Mège, R., Ladoux, B., Marcq, P. (2025). Tissue stress measurements with Bayesian Inversion Stress Microscopy, in revision, The European Physical Journal E.
+- Nier, V., Jain, S., Lim, C. T., Ishihara, S., Ladoux, B., & Marcq, P. (2016). Inference of internal stress in a cell monolayer. Biophysical journal, 110(7), 1625-1635. [DOI:10.1016/j.bpj.2016.03.002](https://doi.org/10.1016/j.bpj.2016.03.002) 
+- Anger, L., Schoenit, A., Wodrascka, F., Rosse, C., Mège, R., Ladoux, B., Marcq, P. (2025). Tissue stress measurements with Bayesian Inversion Stress Microscopy, The European Physical Journal E. [DOI:10.1140/epje/s10189-025-00542-y](https://doi.org/10.1140/epje/s10189-025-00542-y)
 
 ## SOFTWARE REQUIREMENTS
 
