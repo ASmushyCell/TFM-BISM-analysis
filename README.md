@@ -27,7 +27,7 @@ If you use this code, please cite the two following references:
 
 ## SOFTWARE REQUIREMENTS
 
-The latest version of FIJI should be used, along with various plugins developed by external users — notably the Image Stabilizer and FTTC plugins.
+The latest version of FIJI should be used, along with various plugins developed by external users (namely the Image Stabilizer and FTTC plugins).
 For MATLAB, the analysis code was developed and tested using version R2024b, but it should be compatible with earlier versions, at least down to R2020. The PIVlab plugin must be installed in your MATLAB environment (preferably the latest version, although earlier versions should also work, at least from 2020 onwards).
 Additionally, the pipeline makes use of several external MATLAB functions developed by other contributors. All required raw functions and FIJI plugins are already included in the repository’s functions folder. For reference, all original sources are summarized below.
 
